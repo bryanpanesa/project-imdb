@@ -1,4 +1,4 @@
-<div style="text-align:center">
+<div style="text-align:center; padding-bottom: 10rem;">
   <h1>
     Project IMDb
   </h1>
@@ -6,11 +6,18 @@
 
 <input type="text" [(ngModel)]="releaseYear" (input)="fetchMovies()" />
 
-<div class="grid-container">
+<!-- <div class="grid-container">
     <div *ngFor="let movie of movies.results">
         <h2>{{movie.title}}</h2>
         <img *ngIf="movie.poster_path" width="200" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="{{movie.title}}" />
         <img *ngIf="movie.poster_path == null" src="https://via.placeholder.com/200x300" alt="Dummy poster" />
         <p>{{movie.overview}}</p>
+    </div>
+</div> -->
+
+<div class="movieMenu">
+    <div *ngFor="let movie of movies.results" [ngStyle]="{'background-image':'url(https://image.tmdb.org/t/p/w500/'+movie.poster_path+')'}" >
+      <h2>{{movie.title}}</h2>
+      <p>{{movie.overview}}</p>
     </div>
 </div>
